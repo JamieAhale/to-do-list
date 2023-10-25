@@ -1,0 +1,97 @@
+<div class='header'>
+  <h1>Task List</h1>
+
+  <%= link_to 'New Task', new_task_path, class: 'btn-new-task' %>
+</div>
+
+
+<div class='search-section'>
+  <%= form_tag(tasks_path, method: :get, id: 'search_form') do %>
+    <%= label_tag :query, "Search:" %>
+    <%= text_field_tag :query, params[:query] %>
+    <%= hidden_field_tag :category_id, params[:category_id] %>
+    <%= hidden_field_tag :priority, params[:priority] %>
+    <%= hidden_field_tag :sort_by, params[:sort_by] %>
+    <%= hidden_field_tag :completed_status, params[:completed_status] %>
+    <%= submit_tag 'Search', class: 'neutral-button' %>
+    <%= link_to 'Reset Search', tasks_path(category_id: params[:category_id], priority: params[:priority], sort_by: params[:sort_by], completed_status: params[:completed_status]), class: 'reset-button reset-link' %>
+  <% end %>
+</div>
+
+
+<div class='filter-section'>
+  <%= form_tag(tasks_path, method: :get, id: 'filter_form') do %>
+    
+    <%= label_tag :completed_status, "Status" %>
+    <%= select_tag :completed_status, options_for_select([["All tasks", "all"],["Complete", "true"], ["Incomplete", "false"]], params[:completed_status] || "false") %>
+
+    <%= label_tag :category_id, "Category" %>
+    <%= select_tag :category_id, options_from_collection_for_select(Category.all, 'id', 'name', params[:category_id]), prompt: 'All' %>
+
+    <%= label_tag :priority, "Priority" %>
+    <%= select_tag :priority, options_for_select(['Low', 'Medium', 'High'], params[:priority]), prompt: 'All' %>
+
+    <%= hidden_field_tag :search, params[:search] %>
+    <%= hidden_field_tag :sort_by, params[:sort_by] %>
+
+    <%= submit_tag 'Filter', name: nil, class: 'neutral-button' %>
+    <%= link_to 'Reset Filters', tasks_path(query: params[:query], sort_by: params[:sort_by]), class: 'reset-button reset-link' %>
+
+  <% end %>
+</div>
+
+
+<div class='sort-section'>
+  <%= form_tag(tasks_path, method: :get, id: 'sort_form') do %>
+    <%= label_tag :sort_by, "Sort by:" %>
+    <%= select_tag :sort_by, options_for_select([["Due Date: Closest-Furthest", "date_asc"],["Due Date: Furthest-Closest", "date_desc"],["Priority Low-High", "priority_asc"],["Priority High-Low", "priority_desc"]], params[:sort_by]), prompt: 'Select Sorting' %>
+    <%= hidden_field_tag :query, params[:query] %>
+    <%= hidden_field_tag :category_id, params[:category_id] %>
+    <%= hidden_field_tag :priority, params[:priority] %>
+    <%= hidden_field_tag :completed_status, params[:completed_status] %>
+    <%= submit_tag 'Sort', name: nil, class: 'neutral-button' %>
+    <%= link_to 'Reset Sorting', tasks_path(query: params[:query], category_id: params[:category_id], priority: params[:priority], completed_status: params[:completed_status]), class: 'reset button reset-link' %>
+  <% end %>
+</div>
+
+<div class='task-table'>
+  <table>
+    <thead>
+      <tr>
+        <th> </th>
+        <th class='title-header align-left'>Title</th>
+        <th>Due Date</th>
+        <th>Category</th>
+        <th>Priority</th>
+        <th class='notes-header align-left'>Notes</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td>
+            <% if task.completed? %>
+              <%= button_to incomplete_task_path(task, params: permitted_params), method: :patch, remote: true, class: 'incomplete-button' do %>
+                <i class="fas fa-check"></i> 
+              <% end %>
+            <% else %>
+              <%= button_to complete_task_path(task, params: permitted_params), method: :patch, remote: true, class: 'complete-button' do %>
+                <p> </p>
+              <% end %>
+            <% end %>
+          </td>
+          <td class='task-title align-left'><span class="<%= 'completed-task' if task.completed? %>"><%= task.title %></span></td>
+          <td><%= task.due_date.strftime('%d/%m/%y') if task.due_date %></td>
+          <td><%= task.category ? task.category.name : "No Category" %></td>
+          <td class="<%= task.priority.downcase %>"><%= task.priority %></td>
+          <td class='task-notes align-left'><%= task.notes %></td>
+          <td class='actions'>
+            <%= link_to 'Edit', edit_task_path(task), class: "edit-button" %> 
+            <%= button_to 'Delete', task, method: :delete, form: {class: "inline-form"}, class: "delete-button" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div> 

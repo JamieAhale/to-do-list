@@ -1,0 +1,7 @@
+<h1 class="new-task-title">Create a New Task</h1>
+
+  <%= render 'new-form', task: @task %>
+
+<div class="back-link-wrapper">
+    <%= link_to 'Back', tasks_path, class: 'back-link' %>
+</div>

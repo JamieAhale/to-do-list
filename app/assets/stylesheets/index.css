@@ -1,0 +1,273 @@
+table tbody tr td span.completed-task {
+    text-decoration: line-through;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-section,
+  .filter-section,
+  .sort-section {
+    background-color: #fff;
+    padding: 5px 15px;  /* Reduced padding for a more compact look */
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 0.9em;  /* Reduce font size */
+  }
+  
+  .task-table {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .task-table th, 
+  .task-table td {
+    padding: 10px;
+    border-bottom: 1px solid #e1e1e1;
+  }
+  
+  .completed-task {
+    text-decoration: line-through;
+    color: gray;
+  }
+  
+  .complete-button, .incomplete-button {
+    background-color: #f0f0f0; /* Neutral light gray */
+    border: none;
+    color: #333; /* Text color to ensure it's readable against the neutral background */
+    padding: 0; /* Remove padding to control height */
+    height: 25px;
+    width: 25px; /* Set the height to half the height of its container */
+    line-height: 1; /* Adjust the line-height for proper vertical alignment of the icon */
+    vertical-align: middle; 
+    margin: auto 0; 
+    display: block; 
+  }
+  
+  
+  .complete-button i, .incomplete-button i {
+    vertical-align: middle; 
+  }
+  
+  .complete-button p {
+    width: 8px;
+    height: 1px;
+    display: inline-block;
+  }
+  
+  .reset-button {
+    margin-left: 10px;
+  }
+  
+  button, input[type="submit"] {
+    background-color: lightgray;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  button:hover, input[type="submit"]:hover {
+    background-color: yellowgreen;
+  }
+
+  label {
+    margin-right: 5px;
+    display: inline-block; 
+    vertical-align: middle; 
+  }
+  
+  select, input[type="text"] {
+    padding: 3px 5px;  /* Reduced padding for a more compact look */
+    margin-right: 5px;
+    font-size: 0.9em;  /* Reduce font size */
+    height: auto;  /* Adjusting height to auto for select elements for a more compact look */
+  }
+
+  input[type="submit"], .reset-button {
+    padding: 3px 8px;  /* Reduced padding for a more compact look */
+    font-size: 0.9em;  /* Reduce font size */
+  }
+
+  td.actions {
+    white-space: nowrap; /* Prevent wrapping */
+  }
+  
+  /* Style for the edit and delete buttons */
+  td.actions a, td.actions button {
+    display: inline-block; /* Display inline while allowing margin, padding, etc. */
+    margin-right: 5px; /* Add some space between the buttons */
+  }
+
+  .inline-form {
+    display: inline;
+  }
+  
+  .edit-button {
+    background-color: #FFD580;  /* faded yellow-orange color */
+    border: none;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: black; /* Change the text color as per your preference */
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.reset-link {
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.reset-link:hover {
+    text-decoration: underline;
+}
+
+table td {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+td.high {
+    background-color: #FFCCCC; /* faint red */
+}
+
+td.low {
+    background-color: #ffffe0; /* faint yellow */
+}
+
+td.medium {
+    background-color: #FFE4C4;
+}
+
+td.task-title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* For the entire app */
+.app-container {
+    min-width: 800px; /* Adjust as needed */
+    margin: 0 auto;
+}
+
+/* Adjusting title width and font size */
+.title-header,
+.task-title {
+    width: 50%;
+    font-size: 1em; /* Adjust as needed */
+}
+
+/* Adjusting the notes cell */
+.notes-header,
+.task-notes {
+    width: 50%; /* Adjust based on how wide you want it */
+}
+
+/* Adjusting font size for other cells */
+td:not(.task-title):not(.task-notes) {
+    font-size: 0.85em; /* Reduce font size. Adjust as needed */
+}
+
+.task-table thead th {
+    font-size: 0.8em;   /* Reducing font size. Adjust as per your requirement */
+    height: 1px;
+    padding: 4px 8px;
+    margin: 0;   /* Reducing vertical padding to make the row shorter */      /* You can set an explicit height if necessary */
+}
+
+.btn-new-task {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #FFD580; /* This is a faded yellow-orange color like the 'Edit' button */
+  border: none;
+  border-radius: 5px;
+  color: #333; /* Dark text color for contrast */
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-new-task:hover {
+  background-color: #FFC769; /* A slightly darker shade for hover effect */
+}
+
+/* Optional: You can also add a focus state for better accessibility */
+.btn-new-task:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 213, 128, 0.5); /* Adds a subtle outline around the button */
+}
+
+.header {
+  text-align: center;
+  background-color: #f4f4f4; /* A soft gray background */
+  position: relative;
+}
+
+.header h1 {
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  color: #333; /* Dark text color */
+  font-size: 46px; /* Larger font size */
+  margin-bottom: 10px; /* Space below the heading */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* Slight text shadow for depth */
+  padding-bottom: 25px;
+}
+
+.neutral-button {
+  background-color: #d3d3d3;  /* You can adjust this shade if needed */
+  border: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.neutral-button:hover {
+  background-color: #c0c0c0;  /* Slightly darker shade on hover */
+}
+
+.align-left {
+  text-align: left;
+}

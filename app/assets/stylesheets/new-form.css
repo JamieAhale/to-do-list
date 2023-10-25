@@ -1,0 +1,87 @@
+.task-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    background-color: #f4f4f4; /* Soft gray to match your index */
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .form-actions {
+    text-align: center;
+  }
+  
+  .btn-submit {
+    padding: 10px 20px;
+    background-color: #FFDAB9; /* Light orange to match your index */
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-submit:hover {
+    background-color: #FFC09F; /* Darker shade of orange on hover */
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+  .task-form {
+    width: 100%;
+    box-sizing: border-box;  /* Ensure padding and border are included in the total width */
+}
+
+.form-control {
+    width: 100%;
+    box-sizing: border-box;  /* Ensure padding and border are included in the total width */
+    margin-top: 5px;         /* Padding between the field label and the input field */
+}
+
+.new-task-wrapper {
+    text-align: center; /* Center the content inside this wrapper */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.new-task-title {
+    margin: 0 auto; /* Center the heading */
+    padding: 20px 0; /* Some space above and below the heading */
+    font-size: 24px; /* Adjust as needed */
+    text-align: center;
+}
+
+.back-link-wrapper {
+    margin-top: 20px; /* Some space above the back link */
+    text-align: center;
+}
+
+.back-link {
+    text-decoration: none; /* Removes underline from the link */
+    color: inherit; /* Uses the default color, removing any link-specific color */
+    margin: 0 auto;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+
+  
